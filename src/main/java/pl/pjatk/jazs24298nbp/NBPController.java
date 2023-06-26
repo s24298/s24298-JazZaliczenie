@@ -23,15 +23,10 @@ public class NBPController {
         ArrayList<GoldInfo> rates = nbpService.getGoldInDateGold(start, end);
         double sum = 0;
         for(GoldInfo rate : rates) sum+=rate.getCena();
-        return ResponseEntity.ok(nbpService.getGoldInDate(start, end) + "\n\n AVG:" + (sum/rates.size()));
+
+        String ret = "\n "+"Start: " + start + " end: " +end+" AVG:" + (sum/rates.size());
+
+        return ResponseEntity.ok(ret);
     }
-
-    @GetMapping("{start}/{end}/test")
-    public ResponseEntity<ArrayList<GoldInfo>> getCurrencyRates(@PathVariable String start, @PathVariable String end) {
-        ArrayList<GoldInfo> rates = nbpService.getGoldInDateGold(start, end);
-        return ResponseEntity.ok(rates);
-    }
-
-
 
 }

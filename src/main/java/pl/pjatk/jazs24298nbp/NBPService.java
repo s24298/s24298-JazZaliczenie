@@ -19,13 +19,6 @@ public class NBPService {
     }
 
 
-    public String getGoldInDate(String start, String end) {
-        String URL = "http://api.nbp.pl/api/cenyzlota/"+ start + "/" + end + "/";
-        ResponseEntity<String> response = restTemplateConfig.getRestTemplate().getForEntity(URL, String.class);
-        String productJ = response.getBody();
-        return productJ;
-    }
-
     public ArrayList<GoldInfo> getGoldInDateGold(String start, String end) {
         String URL = "http://api.nbp.pl/api/cenyzlota/"+ start + "/" + end + "/";
         ResponseEntity<String> response = restTemplateConfig.getRestTemplate().getForEntity(URL, String.class);
@@ -41,13 +34,6 @@ public class NBPService {
         return goldInfoList;
     }
 
-
-    public String getCurrency(String table) {
-        String URL = "http://api.nbp.pl/api/exchangerates/rates/a/" + table + "/";
-        ResponseEntity<String> response = restTemplateConfig.getRestTemplate().getForEntity(URL, String.class);
-        String productJ = response.getBody();
-        return productJ;
-    }
 
 
 }
